@@ -3,11 +3,16 @@ const bcrypt = require("bcrypt");
 const createUserToken = require("../helpers/createUserToken");
 const getUserToken = require("../helpers/getUserToken");
 const jwt = require("jsonwebtoken");
+const getUserByToken = require("../helpers/getUserByToken");
+const validation = {
+  email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+  phone: /^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$/,
+};
 module.exports = class UserController {
   static async register(req, res) {
     const { name, email, password, confirmPassword, phone } = req.body;
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const phoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$/;
+    const emailRegex = validation.email;
+    const phoneRegex = validation.phone;
     const userExists = await User.findOne({ email: email });
     if (userExists) {
       res.status(409).json({ message: "O usuário ja existe" });
@@ -95,6 +100,84 @@ module.exports = class UserController {
       res
         .status(500)
         .json({ message: "Erro ao buscar usuário", error: err.message });
+    }
+  }
+  static async getUser(req, res) {
+    const id = req.params.id;
+    const user = await User.findById(id).select("-password");
+    if (!user) {
+      return res.status(404).json({ message: "Usuário não encontrado" });
+    }
+    res.status(200).json({ message: "Usuario encontrado!", user });
+  }
+  static async editUser(req, res) {
+    const id = req.params.id;
+    const { name, email, password, confirmPassword, phone } = req.body;
+    const image = "";
+    const emailRegex = validation.email;
+    const phoneRegex = validation.phone;
+    const userExists = await User.findOne({ email: email });
+    const token = getUserToken(req);
+    const user = await getUserByToken(token);
+    if (user.id !== id) {
+      res.status(403).json({ message: "Acesso negado" });
+      return;
+    }
+    if (userExists) {
+      if (userExists.email === user.email) {
+      } else {
+        res
+          .status(409)
+          .json({ message: "Um usuário com esse e-mail já existe" });
+        return;
+      }
+    }
+    if (req.file) {
+      user.image = req.file.filename;
+    }
+    if (!emailRegex.test(email)) {
+      res.status(422).json({ message: "Insira um e-mail válido" });
+      return;
+    }
+    if (password && password.length < 6) {
+      res
+        .status(422)
+        .json({ message: "A senha deve possuir mais de 6 caracteres" });
+      return;
+    }
+    if (!phoneRegex.test(phone)) {
+      res.status(422).json({ message: "Insira um telefone válido" });
+      return;
+    }
+
+    if (!name) {
+      res.status(422).json({ message: "Nome é Obrigatorio" });
+      return;
+    }
+    user.name = name;
+    if (!email) {
+      res.status(422).json({ message: "E-mail é Obrigatorio" });
+      return;
+    }
+    user.email = email;
+    if (!phone) {
+      res.status(422).json({ message: "Telefone é Obrigatorio" });
+      return;
+    }
+    user.phone = phone;
+    if (password !== confirmPassword) {
+      res.status(422).json({ message: "As senhas não conferem" });
+      return;
+    } else if (password === confirmPassword && password != null) {
+      const salt = await bcrypt.genSalt(12);
+      const hashedPassword = await bcrypt.hash(password, salt);
+      user.password = hashedPassword;
+    }
+    try {
+      await User.findByIdAndUpdate(user.id, { $set: user }, { new: true });
+      res.status(200).json({ message: "Usuario atualizado com sucesso" });
+    } catch (err) {
+      res.status(500).json({ message: err });
     }
   }
 };
