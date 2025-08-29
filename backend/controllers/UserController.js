@@ -61,7 +61,6 @@ module.exports = class UserController {
   static async login(req, res) {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
-    const passwordMatch = await bcrypt.compare(password, user.password);
     if (!email || !password) {
       res.status(422).json({ message: "Todos os campos sao obrigatorios" });
       return;
@@ -70,6 +69,7 @@ module.exports = class UserController {
       res.status(422).json({ message: "Usuário não existe" });
       return;
     }
+    const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
       res.status(422).json({ message: "Credenciais incorretas" });
       return;
@@ -113,7 +113,6 @@ module.exports = class UserController {
   static async editUser(req, res) {
     const id = req.params.id;
     const { name, email, password, confirmPassword, phone } = req.body;
-    const image = "";
     const emailRegex = validation.email;
     const phoneRegex = validation.phone;
     const userExists = await User.findOne({ email: email });
