@@ -1,0 +1,31 @@
+.header {
+  padding: 1rem 0.5rem;
+  border-bottom: 1rem;
+  background-color: var(--primary-bg);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.image {
+    width: 40px;
+}
+.logo {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+}
+.links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap;
+}
+
+.links li a {
+    padding: .5rem 1rem;
+    background-color: var(--secondary-bg);
+    border-radius: .5rem;
+    color: black;
+    transition: .5;
+}
