@@ -1,0 +1,27 @@
+:root {
+  --primary-bg: rgb(230, 255, 120);
+  --secondary-bg: rgb(255, 255, 255);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+body {
+  background-color: var(--secondary-bg);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,li {
+  list-style: none;
+}
+
+
+h1 {
+  font-size: 1.6rem;
+}
