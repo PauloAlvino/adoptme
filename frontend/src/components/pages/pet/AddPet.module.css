@@ -1,0 +1,127 @@
+.addpet_header {
+  padding: 2rem 0;
+}
+
+.addpet_header h1 {
+  font-size: 2.1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.addpet_header h1::before {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 100%;
+  background-color: var(--primary-bg);
+  position: absolute;
+  left: -5px;
+  z-index: -1;
+}
+
+.addpet_header p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.addpet_form {
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.preview_section {
+  margin-top: 2rem;
+}
+
+.preview_section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.preview_pet_images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.preview_image_container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.preview_image_container:hover {
+  transform: scale(1.02);
+}
+
+.preview_image_container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove_button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #666;
+  transition: all 0.2s;
+  z-index: 2;
+}
+
+.remove_button:hover {
+  background: #ff4444;
+  color: white;
+}
+
+.no_images {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  color: #666;
+}
+
+.image_counter {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Estilo do botão de submit */
+input[type="submit"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background: var(--primary-bg);
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+input[type="submit"]:hover {
+  background: var(--third-bg);
+}

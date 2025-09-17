@@ -1,7 +1,10 @@
 .header {
   padding: 1rem 0.5rem;
-  border-bottom: 1rem;
   background-color: var(--primary-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 }
 .navbar {
   display: flex;
@@ -9,23 +12,24 @@
   align-items: center;
 }
 .image {
-    width: 40px;
+  width: 40px;
 }
 .logo {
-    display: flex;
-    gap: .4rem;
-    align-items: center;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
 }
 .links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: nowrap;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
 }
 
 .links li a {
-    padding: .5rem 1rem;
-    background-color: var(--secondary-bg);
-    border-radius: .5rem;
-    color: black;
-    transition: .5;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-bg);
+  border-radius: 0.5rem;
+  color: black;
+  transition: 0.5;
 }
+
