@@ -1,0 +1,33 @@
+.form_control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form_control label {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.select {
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.select:hover {
+  border-color: var(--primary-bg);
+  box-shadow: 0 0 0 2px var(--third-bg);
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--primary-bg);
+  box-shadow: 0 0 0 2px var(--third-bg);
+}

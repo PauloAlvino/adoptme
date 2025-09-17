@@ -1,6 +1,7 @@
 :root {
   --primary-bg: rgb(230, 255, 120);
   --secondary-bg: rgb(255, 255, 255);
+  --third-bg: rgb(215, 255, 38);
 }
 *{
   margin: 0;

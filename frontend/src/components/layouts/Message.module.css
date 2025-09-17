@@ -1,0 +1,15 @@
+.message {
+    position: fixed;
+    padding: 1rem;
+    margin: 1rem;
+    z-index: 100;
+    border-radius: 6px;
+}
+
+.error {
+    background-color: red;
+}
+
+.sucess {
+    background-color: green;
+}

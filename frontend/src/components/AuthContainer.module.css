@@ -1,12 +1,12 @@
 .container {
-  display: flex;
-  height: 90vh;
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr;
 }
 
 .content {
-  width: 50%;
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 .auth_image {
@@ -14,5 +14,4 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
-  width: 50%;
 }

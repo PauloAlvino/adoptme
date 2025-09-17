@@ -1,0 +1,125 @@
+.petslist_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.petslist_header h1 {
+  margin: 0;
+}
+
+.add_pet_button {
+  background-color: #16479d;
+  color: #fff;
+  padding: 0.7em 1.2em;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add_pet_button:hover {
+  background-color: #2756ae;
+}
+
+.petslist_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
+
+.petcard {
+  width: 22%;
+  min-width: 250px;
+  padding: 1em;
+  border: 1px solid #16479d;
+  border-radius: 5px;
+}
+
+.petcard_image_container {
+  width: 100%;
+  height: 225px;
+  display: flex;
+  justify-content: center;
+}
+
+.petcard_info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.adopted_text {
+  color: #25b456;
+  font-weight: bold;
+  padding: 0.3em;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #16479d;
+  padding: 0.5em;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.edit_btn {
+  border-color: #16479d;
+  color: #16479d;
+}
+
+.edit_btn:hover {
+  background-color: #16479d;
+  color: #fff;
+}
+
+.delete_btn {
+  border-color: #c23838;
+  color: #c23838;
+}
+
+.delete_btn:hover {
+  background-color: #c23838;
+  color: #fff;
+}
+
+.conclude_btn {
+  border-color: #25b456;
+  color: #25b456;
+}
+
+.conclude_btn:hover {
+  background-color: #25b456;
+  color: #fff;
+}
+
+.adopted_info {
+  text-align: center;
+  color: #25b456;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+.no_pets {
+  text-align: center;
+  font-size: 1.2em;
+  color: #666;
+  margin-top: 2em;
+}
+
