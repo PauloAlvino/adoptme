@@ -8,7 +8,7 @@ const protectedRoutes = (req, res, next) => {
   const token = getUserToken(req);
 
   if (!token) {
-    res.status(422).json({ message: "Acesso negado" });
+    return res.status(422).json({ message: "Acesso negado" });
   }
   try {
     const verified = jwt.verify(token, "mysecret");

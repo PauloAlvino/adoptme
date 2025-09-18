@@ -15,12 +15,12 @@ const Navbar = () => {
         <nav>
           <ul className={styles.links}>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Adotar</Link>
             </li>
             {auth ? (
               <>
                 <li>
-                  <Link>Adotar</Link>
+                  <Link to='/pet/myadoptions'>Minhas Adocões</Link>
                 </li>
                 <li>
                   <Link to='/pet/mypets'>Meus Pets</Link>

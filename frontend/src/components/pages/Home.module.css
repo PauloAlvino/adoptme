@@ -1,0 +1,123 @@
+.pet_home_header {
+  margin: 2em 1em;
+  text-align: center;
+}
+
+.pet_home_header h1 {
+  margin-bottom: 0.5em;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.pet_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5em;
+  padding: 1em;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pet_card {
+  border: 1px solid #16479d;
+  border-radius: 8px;
+  padding: 0.8em;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pet_card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pet_card_image {
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 1em;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pet_card_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pet_card:hover .pet_card_image img {
+  transform: scale(1.05);
+}
+
+.pet_card_body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.pet_card_body h3 {
+  font-size: clamp(1.2em, 3vw, 1.4em);
+  color: #16479d;
+}
+
+.pet_card_body p {
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.pet_card_body .bold {
+  font-weight: bold;
+  color: #16479d;
+}
+
+.pet_card_body a {
+  text-decoration: none;
+  background-color: #16479d;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.8em;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: auto;
+  transition: all 0.3s ease;
+}
+
+.pet_card_body a:hover {
+  background-color: #2756ae;
+  transform: translateY(-2px);
+}
+
+.adopted_text {
+  font-weight: bold;
+  color: #25b456;
+  margin-top: auto;
+  text-align: center;
+  padding: 0.8em;
+  border: 2px solid #25b456;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .pet_container {
+    padding: 0.5em;
+    gap: 1em;
+    grid-template-columns: 1fr 1fr  ;
+  }
+
+  .pet_card {
+    padding: 0.8em;
+  }
+
+  .pet_card_body {
+    gap: 0.6em;
+  }
+
+  .pet_card_body a,
+  .adopted_text {
+    padding: 0.7em;
+  }
+}

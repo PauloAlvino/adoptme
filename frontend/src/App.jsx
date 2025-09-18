@@ -17,6 +17,8 @@ import Profile from "./components/pages/user/Profile";
 import Dashboard from "./components/pages/pet/Dashboard";
 import AddPet from "./components/pages/pet/AddPet";
 import EditPet from "./components/pages/pet/EditPet";
+import PetDetails from "./components/pages/pet/PetDetails";
+import MyAdoptions from "./components/pages/MyAdoptions";
 function App() {
   return (
     <Router>
@@ -77,6 +79,22 @@ function App() {
             element={
               <Container>
                 <EditPet />
+              </Container>
+            }
+          />
+          <Route
+            path="/pet/:id"
+            element={
+              <Container>
+                <PetDetails />
+              </Container>
+            }
+          />
+          <Route
+            path="/pet/myadoptions"
+            element={
+              <Container>
+                <MyAdoptions />
               </Container>
             }
           />

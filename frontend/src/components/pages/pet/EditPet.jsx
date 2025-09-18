@@ -27,7 +27,7 @@ const EditPet = () => {
     api
       .get(`/pets/${id}`, {
         headers: {
-          Authorization: `Bearer ${JSON.parse(token)}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
@@ -74,7 +74,7 @@ const EditPet = () => {
     const data = await api
       .patch(`pets/${id}`, formData, {
         headers: {
-          Authorization: `Bearer ${JSON.parse(token)}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
       })
