@@ -1,57 +1,107 @@
 .prof_container {
-  margin: 1rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   display: grid;
   grid-template-columns: 1fr auto;
-  justify-content: start;
+  gap: 2rem;
+  align-items: start;
 }
+
 .title {
-  font-size: 2rem;
-  margin-bottom: .5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1.5rem;
   position: relative;
+  padding-left: 1rem;
 }
+
 .title::before {
   content: "";
   display: block;
   height: 100%;
-  width: 1rem;
+  width: 0.5rem;
   z-index: -1;
-  left: 0px;
+  left: 0;
   background-color: var(--primary-bg);
   position: absolute;
 }
+
 .form {
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 1rem;
+}
+
+.form input:not([type="submit"]) {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 
 input[type="submit"] {
-  padding: 0.75rem 1rem;
+  width: 100%;
+  padding: 1rem;
   background: var(--primary-bg);
   color: black;
-  font-size: 1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 input[type="submit"]:hover {
   background: var(--third-bg);
+  transform: translateY(-2px);
 }
 
 .form a {
-    color: #007bff;
+  color: #007bff;
+  padding: 0.5rem 0;
+  display: inline-block;
 }
 
-.form a:hover{
-    text-decoration: underline;
+.form a:hover {
+  text-decoration: underline;
 }
 
 .image_cont {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .5rem;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .prof_container {
+    grid-template-columns: 1fr;
+    margin: 1rem auto;
+    gap: 1rem;
+  }
+
+  .form {
+    gap: 0.8rem;
+  }
+
+  .form input:not([type="submit"]) {
+    padding: 0.7rem;
+    font-size: 16px;
+  }
+
+  input[type="submit"] {
+    padding: 0.8rem;
+  }
+
+  .image_cont {
+    order: -1;
+    margin-bottom: 1rem;
+  }
 }

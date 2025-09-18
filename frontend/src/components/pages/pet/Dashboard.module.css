@@ -3,80 +3,115 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2em;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .petslist_header h1 {
   margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
 }
 
 .add_pet_button {
   background-color: #16479d;
   color: #fff;
-  padding: 0.7em 1.2em;
+  padding: 0.8em 1.2em;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .add_pet_button:hover {
   background-color: #2756ae;
+  transform: translateY(-2px);
 }
 
 .petslist_container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  padding: 0.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .petcard {
-  width: 22%;
-  min-width: 250px;
-  padding: 1em;
+  width: 100%;
+  padding: 0.8rem;
   border: 1px solid #16479d;
-  border-radius: 5px;
+  border-radius: 8px;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.petcard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .petcard_image_container {
   width: 100%;
-  height: 225px;
+  aspect-ratio: 1;
   display: flex;
   justify-content: center;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
+
+.petcard_image_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.petcard:hover .petcard_image_container img {
+  transform: scale(1.05);
 }
 
 .petcard_info {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  font-size: 0.95em;
 }
 
 .bold {
   font-weight: bold;
+  color: #16479d;
 }
 
 .adopted_text {
   color: #25b456;
   font-weight: bold;
-  padding: 0.3em;
+  padding: 0.5em;
+  border-radius: 4px;
+  background: rgba(37, 180, 86, 0.1);
 }
 
 .actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.8em;
+  margin-top: 1.5em;
 }
 
 .btn {
   text-decoration: none;
   background-color: #fff;
-  border: 1px solid #16479d;
-  padding: 0.5em;
+  border: 2px solid;
+  padding: 0.8em;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: 500;
 }
 
 .edit_btn {
@@ -87,6 +122,7 @@
 .edit_btn:hover {
   background-color: #16479d;
   color: #fff;
+  transform: translateY(-2px);
 }
 
 .delete_btn {
@@ -97,6 +133,7 @@
 .delete_btn:hover {
   background-color: #c23838;
   color: #fff;
+  transform: translateY(-2px);
 }
 
 .conclude_btn {
@@ -107,19 +144,111 @@
 .conclude_btn:hover {
   background-color: #25b456;
   color: #fff;
+  transform: translateY(-2px);
 }
 
 .adopted_info {
   text-align: center;
   color: #25b456;
   font-weight: bold;
-  margin-top: 1em;
+  margin-top: 1.2em;
+  padding: 0.8em;
+  background: rgba(37, 180, 86, 0.1);
+  border-radius: 6px;
 }
 
 .no_pets {
   text-align: center;
-  font-size: 1.2em;
+  font-size: clamp(1.1em, 3vw, 1.2em);
   color: #666;
-  margin-top: 2em;
+  margin: 3em auto;
+  padding: 2em;
+  background: #f9f9f9;
+  border-radius: 8px;
+  max-width: 600px;
 }
 
+@media (hover: hover) {
+  .petcard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .petcard:hover .petcard_image_container img {
+    transform: scale(1.05);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .petslist_header {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1em;
+    padding: 0 0.5rem;
+  }
+
+  .petslist_header h1 {
+    font-size: 1.5rem;
+  }
+
+  .add_pet_button {
+    padding: 0.6em 1em;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .petslist_container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    padding: 0.5rem;
+    max-width: none;
+  }
+
+  .petcard {
+    padding: 0.6rem;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .petcard_image_container img {
+    transform: none !important;
+  }
+
+  .petcard_info {
+    font-size: 0.85em;
+  }
+
+  .actions {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+  }
+
+  .btn {
+    padding: 0.6em;
+    font-size: 0.85em;
+    transform: none !important;
+  }
+
+  .adopted_text,
+  .adopted_info {
+    font-size: 0.85em;
+    padding: 0.4em;
+  }
+}
+
+@media (max-width: 480px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .petslist_container {
+    grid-template-columns: 1fr;
+  }
+}

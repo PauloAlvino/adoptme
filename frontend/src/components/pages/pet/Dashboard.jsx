@@ -14,7 +14,7 @@ const Dashboard = () => {
     api
       .get("/pets/userPets", {
         headers: {
-          Authorization: `Bearer ${JSON.parse(token)}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
@@ -31,7 +31,7 @@ const Dashboard = () => {
     const data = await api
       .delete(`/pets/${id}`, {
         headers: {
-          Authorization: `Bearer ${JSON.parse(token)}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
@@ -53,7 +53,7 @@ const Dashboard = () => {
     const data = await api
       .patch(`/pets/conclude/${id}`, {
         headers: {
-          Authorization: `Bearer ${JSON.parse(token)}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
