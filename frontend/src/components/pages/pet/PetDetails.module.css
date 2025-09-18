@@ -34,10 +34,9 @@
   scrollbar-width: thin;
   scrollbar-color: #16479d #f0f0f0;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 1em; /* Espaço para a scrollbar */
+  padding-bottom: 1em; 
 }
 
-/* Estilização da scrollbar para Chrome/Safari */
 .pet_images::-webkit-scrollbar {
   height: 8px;
 }
