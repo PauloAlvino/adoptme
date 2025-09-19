@@ -5,24 +5,33 @@
   top: 0;
   z-index: 1000;
   width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.image {
-  width: 40px;
-}
+
 .logo {
   display: flex;
   gap: 0.4rem;
   align-items: center;
+  z-index: 10;
 }
+
+.image {
+  width: 40px;
+}
+
 .links {
   display: flex;
   gap: 1rem;
-  flex-wrap: nowrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .links li a {
@@ -30,6 +39,96 @@
   background-color: var(--secondary-bg);
   border-radius: 0.5rem;
   color: black;
-  transition: 0.5;
+  transition: opacity 0.3s;
+  display: block;
+  text-decoration: none;
 }
 
+.links li a:hover {
+  opacity: 0.8;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
+}
+
+.bar {
+  width: 2rem;
+  height: 0.25rem;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 60%;
+    height: 100vh;
+    background-color: var(--primary-bg);
+    z-index: 1001;
+    transition: right 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  nav.navMenuOpen {
+    right: 0;
+  }
+  
+  nav.navMenuOpen + .overlay {
+    display: block;
+  }
+
+  .links {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+    height: 100%;
+    padding-top: 5rem;
+  }
+
+  .links li {
+    width: 100%;
+  }
+
+  .links li a {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .links li:first-child a {
+    border-top: 1px solid #eee;
+  }
+}
