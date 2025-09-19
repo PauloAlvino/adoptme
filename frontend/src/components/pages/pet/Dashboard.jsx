@@ -49,7 +49,6 @@ const Dashboard = () => {
 
   async function concludeAdoption(id) {
     let msgType = "sucess";
-
     const data = await api
       .patch(`/pets/conclude/${id}`, {
         headers: {
