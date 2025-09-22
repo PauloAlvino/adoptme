@@ -60,12 +60,6 @@ Siga os passos abaixo para configurar e executar o projeto em seu ambiente local
 
 2.  **Configure o Backend:**
     -   Navegue até a pasta do backend: `cd backend`
-    -   Crie um arquivo `.env` na raiz da pasta `backend` e adicione as variáveis de ambiente necessárias.
-      ```env
-      # Exemplo de .env para o backend
-      DB_URI=mongodb://localhost:27017/adoptme
-      JWT_SECRET=meusegredomuitoseguro
-      ```
     -   Instale as dependências:
       ```sh
       npm install
